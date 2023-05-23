@@ -1,0 +1,1188 @@
+2023-05-20 15:44:25,597 p=32397 u=ec2-user n=ansible | 3.208.94.191 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+2023-05-20 15:44:25,621 p=32397 u=ec2-user n=ansible | 54.152.152.0 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+2023-05-20 17:05:11,326 p=1303 u=ec2-user n=ansible | ERROR! conflicting action statements: debug, var
+
+The error appears to be in '/home/ec2-user/play.yml': line 21, column 7, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+      register: output
+    - name: read the output
+      ^ here
+
+2023-05-20 17:07:11,312 p=1369 u=ec2-user n=ansible | PLAY [devserver] ********************************************************************************************************************
+2023-05-20 17:07:11,326 p=1369 u=ec2-user n=ansible | TASK [Gathering Facts] **************************************************************************************************************
+2023-05-20 17:07:14,339 p=1369 u=ec2-user n=ansible | ok: [54.152.152.0]
+2023-05-20 17:07:14,360 p=1369 u=ec2-user n=ansible | TASK [Creating user] ****************************************************************************************************************
+2023-05-20 17:07:14,936 p=1369 u=ec2-user n=ansible | changed: [54.152.152.0]
+2023-05-20 17:07:14,948 p=1369 u=ec2-user n=ansible | TASK [create file] ******************************************************************************************************************
+2023-05-20 17:07:15,375 p=1369 u=ec2-user n=ansible | changed: [54.152.152.0]
+2023-05-20 17:07:15,387 p=1369 u=ec2-user n=ansible | TASK [read the output] **************************************************************************************************************
+2023-05-20 17:07:15,476 p=1369 u=ec2-user n=ansible | ok: [54.152.152.0] => {
+    "output": {
+        "changed": true,
+        "dest": "/tmp/ansible.txt",
+        "diff": {
+            "after": {
+                "atime": 1684602435.34066,
+                "mode": "0600",
+                "mtime": 1684602435.34066,
+                "path": "/tmp/ansible.txt",
+                "state": "touch"
+            },
+            "before": {
+                "atime": 1684602435.3364565,
+                "mode": "0644",
+                "mtime": 1684602435.3364565,
+                "path": "/tmp/ansible.txt",
+                "state": "absent"
+            }
+        },
+        "failed": false,
+        "gid": 0,
+        "group": "root",
+        "mode": "0600",
+        "owner": "root",
+        "size": 0,
+        "state": "file",
+        "uid": 0
+    }
+}
+2023-05-20 17:07:15,496 p=1369 u=ec2-user n=ansible | TASK [Create directory] *************************************************************************************************************
+2023-05-20 17:07:15,796 p=1369 u=ec2-user n=ansible | changed: [54.152.152.0]
+2023-05-20 17:07:15,809 p=1369 u=ec2-user n=ansible | TASK [install apache] ***************************************************************************************************************
+2023-05-20 17:07:19,675 p=1369 u=ec2-user n=ansible | changed: [54.152.152.0]
+2023-05-20 17:07:19,688 p=1369 u=ec2-user n=ansible | TASK [install finger] ***************************************************************************************************************
+2023-05-20 17:07:21,007 p=1369 u=ec2-user n=ansible | ok: [54.152.152.0] => (item=wget)
+2023-05-20 17:07:31,218 p=1369 u=ec2-user n=ansible | changed: [54.152.152.0] => (item=samba)
+2023-05-20 17:07:55,196 p=1369 u=ec2-user n=ansible | changed: [54.152.152.0] => (item=java)
+2023-05-20 17:08:02,691 p=1369 u=ec2-user n=ansible | changed: [54.152.152.0] => (item=finger)
+2023-05-20 17:08:02,720 p=1369 u=ec2-user n=ansible | PLAY RECAP **************************************************************************************************************************
+2023-05-20 17:08:02,720 p=1369 u=ec2-user n=ansible | 54.152.152.0               : ok=7    changed=5    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2023-05-20 17:28:33,021 p=1784 u=ec2-user n=ansible | ERROR! We were unable to read either as JSON nor YAML, these are the errors we got from each:
+JSON: Expecting value: line 1 column 1 (char 0)
+
+Syntax Error while loading YAML.
+  could not find expected ':'
+
+The error appears to be in '/home/ec2-user/play.yml': line 32, column 5, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+          -c1
+    - name: create a file
+    ^ here
+
+2023-05-20 17:31:30,280 p=1912 u=ec2-user n=ansible | ERROR! We were unable to read either as JSON nor YAML, these are the errors we got from each:
+JSON: Expecting value: line 1 column 1 (char 0)
+
+Syntax Error while loading YAML.
+  could not find expected ':'
+
+The error appears to be in '/home/ec2-user/play.yml': line 32, column 5, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+        -c1
+    - name: create a file
+    ^ here
+
+2023-05-20 17:31:50,597 p=1944 u=ec2-user n=ansible | ERROR! We were unable to read either as JSON nor YAML, these are the errors we got from each:
+JSON: Expecting value: line 1 column 1 (char 0)
+
+Syntax Error while loading YAML.
+  mapping values are not allowed in this context
+
+The error appears to be in '/home/ec2-user/play.yml': line 33, column 16, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+    - name: create a file
+          shell: cat /etc/passwd | grep april
+               ^ here
+
+2023-05-20 17:32:20,879 p=1978 u=ec2-user n=ansible | ERROR! We were unable to read either as JSON nor YAML, these are the errors we got from each:
+JSON: Expecting value: line 1 column 1 (char 0)
+
+Syntax Error while loading YAML.
+  mapping values are not allowed in this context
+
+The error appears to be in '/home/ec2-user/play.yml': line 33, column 14, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+    - name: create a file
+        shell: cat /etc/passwd | grep april
+             ^ here
+
+2023-05-20 17:47:01,923 p=2219 u=ec2-user n=ansible | PLAY [devserver] ********************************************************************************************************************
+2023-05-20 17:47:01,939 p=2219 u=ec2-user n=ansible | TASK [Gathering Facts] **************************************************************************************************************
+2023-05-20 17:47:04,469 p=2219 u=ec2-user n=ansible | ok: [54.152.152.0]
+2023-05-20 17:47:04,493 p=2219 u=ec2-user n=ansible | TASK [Creating user] ****************************************************************************************************************
+2023-05-20 17:47:05,243 p=2219 u=ec2-user n=ansible | ok: [54.152.152.0]
+2023-05-20 17:47:05,257 p=2219 u=ec2-user n=ansible | TASK [create file] ******************************************************************************************************************
+2023-05-20 17:47:05,780 p=2219 u=ec2-user n=ansible | changed: [54.152.152.0]
+2023-05-20 17:47:05,797 p=2219 u=ec2-user n=ansible | TASK [read the output] **************************************************************************************************************
+2023-05-20 17:47:05,825 p=2219 u=ec2-user n=ansible | ok: [54.152.152.0] => {
+    "msg": "Hello from ansible this is running on RedHat"
+}
+2023-05-20 17:47:05,836 p=2219 u=ec2-user n=ansible | TASK [Create directory] *************************************************************************************************************
+2023-05-20 17:47:06,155 p=2219 u=ec2-user n=ansible | ok: [54.152.152.0]
+2023-05-20 17:47:06,168 p=2219 u=ec2-user n=ansible | TASK [create a file] ****************************************************************************************************************
+2023-05-20 17:47:06,644 p=2219 u=ec2-user n=ansible | changed: [54.152.152.0]
+2023-05-20 17:47:06,658 p=2219 u=ec2-user n=ansible | TASK [install apache] ***************************************************************************************************************
+2023-05-20 17:47:07,741 p=2219 u=ec2-user n=ansible | ok: [54.152.152.0]
+2023-05-20 17:47:07,755 p=2219 u=ec2-user n=ansible | TASK [install finger] ***************************************************************************************************************
+2023-05-20 17:47:08,627 p=2219 u=ec2-user n=ansible | ok: [54.152.152.0] => (item=wget)
+2023-05-20 17:47:09,479 p=2219 u=ec2-user n=ansible | ok: [54.152.152.0] => (item=samba)
+2023-05-20 17:47:10,924 p=2219 u=ec2-user n=ansible | ok: [54.152.152.0] => (item=java)
+2023-05-20 17:47:11,810 p=2219 u=ec2-user n=ansible | ok: [54.152.152.0] => (item=finger)
+2023-05-20 17:47:11,861 p=2219 u=ec2-user n=ansible | PLAY RECAP **************************************************************************************************************************
+2023-05-20 17:47:11,861 p=2219 u=ec2-user n=ansible | 54.152.152.0               : ok=8    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2023-05-21 21:45:25,921 p=3307 u=ec2-user n=ansible | PLAY [devserver] *******************************************************************************************************************
+2023-05-21 21:45:26,039 p=3307 u=ec2-user n=ansible | TASK [Gathering Facts] *************************************************************************************************************
+2023-05-21 21:45:36,099 p=3307 u=ec2-user n=ansible | fatal: [54.152.152.0]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: ssh: connect to host 54.152.152.0 port 22: Connection timed out", "unreachable": true}
+2023-05-21 21:45:36,100 p=3307 u=ec2-user n=ansible | PLAY RECAP *************************************************************************************************************************
+2023-05-21 21:45:36,101 p=3307 u=ec2-user n=ansible | 54.152.152.0               : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+2023-05-21 21:50:30,894 p=3519 u=ec2-user n=ansible | PLAY [devserver] ********************************************************************************************************************
+2023-05-21 21:50:30,909 p=3519 u=ec2-user n=ansible | TASK [Gathering Facts] **************************************************************************************************************
+2023-05-21 21:50:34,624 p=3519 u=ec2-user n=ansible | ok: [3.89.112.99]
+2023-05-21 21:50:34,648 p=3519 u=ec2-user n=ansible | TASK [Creating user] ****************************************************************************************************************
+2023-05-21 21:50:35,350 p=3519 u=ec2-user n=ansible | ok: [3.89.112.99]
+2023-05-21 21:50:35,372 p=3519 u=ec2-user n=ansible | TASK [create file] ******************************************************************************************************************
+2023-05-21 21:50:35,877 p=3519 u=ec2-user n=ansible | changed: [3.89.112.99]
+2023-05-21 21:50:35,891 p=3519 u=ec2-user n=ansible | TASK [read the output] **************************************************************************************************************
+2023-05-21 21:50:35,918 p=3519 u=ec2-user n=ansible | ok: [3.89.112.99] => {
+    "msg": "Hello from ansible this is running on RedHat"
+}
+2023-05-21 21:50:35,930 p=3519 u=ec2-user n=ansible | TASK [Create directory] *************************************************************************************************************
+2023-05-21 21:50:36,196 p=3519 u=ec2-user n=ansible | ok: [3.89.112.99]
+2023-05-21 21:50:36,209 p=3519 u=ec2-user n=ansible | TASK [create a file] ****************************************************************************************************************
+2023-05-21 21:50:36,648 p=3519 u=ec2-user n=ansible | changed: [3.89.112.99]
+2023-05-21 21:50:36,662 p=3519 u=ec2-user n=ansible | TASK [install apache] ***************************************************************************************************************
+2023-05-21 21:50:38,370 p=3519 u=ec2-user n=ansible | ok: [3.89.112.99]
+2023-05-21 21:50:38,383 p=3519 u=ec2-user n=ansible | TASK [install finger] ***************************************************************************************************************
+2023-05-21 21:50:39,527 p=3519 u=ec2-user n=ansible | ok: [3.89.112.99] => (item=wget)
+2023-05-21 21:50:40,410 p=3519 u=ec2-user n=ansible | ok: [3.89.112.99] => (item=samba)
+2023-05-21 21:50:42,544 p=3519 u=ec2-user n=ansible | ok: [3.89.112.99] => (item=java)
+2023-05-21 21:50:43,416 p=3519 u=ec2-user n=ansible | ok: [3.89.112.99] => (item=finger)
+2023-05-21 21:50:43,446 p=3519 u=ec2-user n=ansible | PLAY RECAP **************************************************************************************************************************
+2023-05-21 21:50:43,446 p=3519 u=ec2-user n=ansible | 3.89.112.99                : ok=8    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2023-05-21 22:32:11,884 p=4002 u=ec2-user n=ansible | PLAY [devserver] ********************************************************************************************************************
+2023-05-21 22:32:11,899 p=4002 u=ec2-user n=ansible | TASK [Gathering Facts] **************************************************************************************************************
+2023-05-21 22:32:13,776 p=4002 u=ec2-user n=ansible | ok: [3.89.112.99]
+2023-05-21 22:32:13,802 p=4002 u=ec2-user n=ansible | TASK [Creating user] ****************************************************************************************************************
+2023-05-21 22:32:14,357 p=4002 u=ec2-user n=ansible | ok: [3.89.112.99]
+2023-05-21 22:32:14,370 p=4002 u=ec2-user n=ansible | TASK [create file] ******************************************************************************************************************
+2023-05-21 22:32:14,843 p=4002 u=ec2-user n=ansible | changed: [3.89.112.99]
+2023-05-21 22:32:14,856 p=4002 u=ec2-user n=ansible | TASK [read the output] **************************************************************************************************************
+2023-05-21 22:32:14,881 p=4002 u=ec2-user n=ansible | ok: [3.89.112.99] => {
+    "msg": "Hello from ansible this is running on RedHat"
+}
+2023-05-21 22:32:14,893 p=4002 u=ec2-user n=ansible | TASK [Create directory] *************************************************************************************************************
+2023-05-21 22:32:15,167 p=4002 u=ec2-user n=ansible | ok: [3.89.112.99]
+2023-05-21 22:32:15,179 p=4002 u=ec2-user n=ansible | TASK [create a file] ****************************************************************************************************************
+2023-05-21 22:32:15,586 p=4002 u=ec2-user n=ansible | changed: [3.89.112.99]
+2023-05-21 22:32:15,597 p=4002 u=ec2-user n=ansible | TASK [install apache] ***************************************************************************************************************
+2023-05-21 22:32:17,009 p=4002 u=ec2-user n=ansible | ok: [3.89.112.99]
+2023-05-21 22:32:17,025 p=4002 u=ec2-user n=ansible | TASK [install finger] ***************************************************************************************************************
+2023-05-21 22:32:17,919 p=4002 u=ec2-user n=ansible | ok: [3.89.112.99] => (item=wget)
+2023-05-21 22:32:18,793 p=4002 u=ec2-user n=ansible | ok: [3.89.112.99] => (item=samba)
+2023-05-21 22:32:20,215 p=4002 u=ec2-user n=ansible | ok: [3.89.112.99] => (item=java)
+2023-05-21 22:32:21,081 p=4002 u=ec2-user n=ansible | ok: [3.89.112.99] => (item=finger)
+2023-05-21 22:32:21,113 p=4002 u=ec2-user n=ansible | PLAY RECAP **************************************************************************************************************************
+2023-05-21 22:32:21,113 p=4002 u=ec2-user n=ansible | 3.89.112.99                : ok=8    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2023-05-22 00:56:11,080 p=5165 u=ec2-user n=ansible | PLAY [devserver] ***************************************************************
+2023-05-22 00:56:11,094 p=5165 u=ec2-user n=ansible | TASK [Gathering Facts] *********************************************************
+2023-05-22 00:56:12,994 p=5165 u=ec2-user n=ansible | ok: [3.89.112.99]
+2023-05-22 00:56:13,023 p=5165 u=ec2-user n=ansible | TASK [Creating user] ***********************************************************
+2023-05-22 00:56:13,554 p=5165 u=ec2-user n=ansible | ok: [3.89.112.99]
+2023-05-22 00:56:13,567 p=5165 u=ec2-user n=ansible | TASK [create file] *************************************************************
+2023-05-22 00:56:14,011 p=5165 u=ec2-user n=ansible | changed: [3.89.112.99]
+2023-05-22 00:56:14,023 p=5165 u=ec2-user n=ansible | TASK [read the output] *********************************************************
+2023-05-22 00:56:14,049 p=5165 u=ec2-user n=ansible | ok: [3.89.112.99] => {
+    "msg": "Hello from ansible this is running on RedHat"
+}
+2023-05-22 00:56:14,061 p=5165 u=ec2-user n=ansible | TASK [Create directory] ********************************************************
+2023-05-22 00:56:14,330 p=5165 u=ec2-user n=ansible | ok: [3.89.112.99]
+2023-05-22 00:56:14,342 p=5165 u=ec2-user n=ansible | TASK [create a file] ***********************************************************
+2023-05-22 00:56:14,739 p=5165 u=ec2-user n=ansible | changed: [3.89.112.99]
+2023-05-22 00:56:14,751 p=5165 u=ec2-user n=ansible | TASK [install apache] **********************************************************
+2023-05-22 00:56:15,775 p=5165 u=ec2-user n=ansible | ok: [3.89.112.99]
+2023-05-22 00:56:15,787 p=5165 u=ec2-user n=ansible | TASK [install finger] **********************************************************
+2023-05-22 00:56:16,644 p=5165 u=ec2-user n=ansible | ok: [3.89.112.99] => (item=wget)
+2023-05-22 00:56:17,503 p=5165 u=ec2-user n=ansible | ok: [3.89.112.99] => (item=samba)
+2023-05-22 00:56:18,891 p=5165 u=ec2-user n=ansible | ok: [3.89.112.99] => (item=java)
+2023-05-22 00:56:19,760 p=5165 u=ec2-user n=ansible | ok: [3.89.112.99] => (item=finger)
+2023-05-22 00:56:19,784 p=5165 u=ec2-user n=ansible | PLAY RECAP *********************************************************************
+2023-05-22 00:56:19,784 p=5165 u=ec2-user n=ansible | 3.89.112.99                : ok=8    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2023-05-22 01:07:12,449 p=5498 u=ec2-user n=ansible | PLAY [devserver] ***************************************************************
+2023-05-22 01:07:12,464 p=5498 u=ec2-user n=ansible | TASK [Gathering Facts] *********************************************************
+2023-05-22 01:07:14,483 p=5498 u=ec2-user n=ansible | ok: [3.89.112.99]
+2023-05-22 01:07:14,505 p=5498 u=ec2-user n=ansible | TASK [Create directory] ********************************************************
+2023-05-22 01:07:14,914 p=5498 u=ec2-user n=ansible | ok: [3.89.112.99]
+2023-05-22 01:07:14,936 p=5498 u=ec2-user n=ansible | PLAY RECAP *********************************************************************
+2023-05-22 01:07:14,937 p=5498 u=ec2-user n=ansible | 3.89.112.99                : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2023-05-22 01:07:41,003 p=5569 u=ec2-user n=ansible | PLAY [devserver] ***************************************************************
+2023-05-22 01:07:41,021 p=5569 u=ec2-user n=ansible | TASK [Gathering Facts] *********************************************************
+2023-05-22 01:07:42,836 p=5569 u=ec2-user n=ansible | ok: [3.89.112.99]
+2023-05-22 01:07:42,858 p=5569 u=ec2-user n=ansible | TASK [Create directory] ********************************************************
+2023-05-22 01:07:43,262 p=5569 u=ec2-user n=ansible | ok: [3.89.112.99]
+2023-05-22 01:07:43,295 p=5569 u=ec2-user n=ansible | PLAY RECAP *********************************************************************
+2023-05-22 01:07:43,296 p=5569 u=ec2-user n=ansible | 3.89.112.99                : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2023-05-22 01:10:28,799 p=5804 u=ec2-user n=ansible | Encryption successful
+2023-05-22 01:12:13,434 p=6013 u=ec2-user n=ansible | [WARNING]:  * Failed to parse /home/ec2-user/inv.yml with auto plugin:
+Attempting to decrypt but no vault secrets found
+
+2023-05-22 01:12:13,435 p=6013 u=ec2-user n=ansible | [WARNING]:  * Failed to parse /home/ec2-user/inv.yml with yaml plugin:
+Attempting to decrypt but no vault secrets found
+
+2023-05-22 01:12:13,435 p=6013 u=ec2-user n=ansible | [WARNING]:  * Failed to parse /home/ec2-user/inv.yml with ini plugin:
+Attempting to decrypt but no vault secrets found
+
+2023-05-22 01:12:13,436 p=6013 u=ec2-user n=ansible | [WARNING]: Unable to parse /home/ec2-user/inv.yml as an inventory source
+
+2023-05-22 01:12:13,436 p=6013 u=ec2-user n=ansible | [WARNING]: No inventory was parsed, only implicit localhost is available
+
+2023-05-22 01:12:13,539 p=6013 u=ec2-user n=ansible | [WARNING]: Could not match supplied host pattern, ignoring: devserver
+
+2023-05-22 01:12:13,540 p=6013 u=ec2-user n=ansible | PLAY [devserver] ***************************************************************
+2023-05-22 01:12:13,540 p=6013 u=ec2-user n=ansible | skipping: no hosts matched
+2023-05-22 01:12:13,540 p=6013 u=ec2-user n=ansible | PLAY RECAP *********************************************************************
+2023-05-22 01:14:19,797 p=6135 u=ec2-user n=ansible | PLAY [devserver] ***************************************************************
+2023-05-22 01:14:19,821 p=6135 u=ec2-user n=ansible | TASK [Gathering Facts] *********************************************************
+2023-05-22 01:14:21,886 p=6135 u=ec2-user n=ansible | ok: [3.89.112.99]
+2023-05-22 01:14:21,906 p=6135 u=ec2-user n=ansible | TASK [Create directory] ********************************************************
+2023-05-22 01:14:22,320 p=6135 u=ec2-user n=ansible | ok: [3.89.112.99]
+2023-05-22 01:14:22,374 p=6135 u=ec2-user n=ansible | PLAY RECAP *********************************************************************
+2023-05-22 01:14:22,375 p=6135 u=ec2-user n=ansible | 3.89.112.99                : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2023-05-22 01:17:02,516 p=6426 u=ec2-user n=ansible | Decryption successful
+2023-05-22 01:18:31,592 p=6510 u=ec2-user n=ansible | Encryption successful
+2023-05-22 01:23:28,062 p=6961 u=ec2-user n=ansible | Rekey successful
+2023-05-22 01:24:00,667 p=7089 u=ec2-user n=ansible | PLAY [devserver] ***************************************************************
+2023-05-22 01:24:00,681 p=7089 u=ec2-user n=ansible | TASK [Gathering Facts] *********************************************************
+2023-05-22 01:24:03,529 p=7089 u=ec2-user n=ansible | ok: [3.89.112.99]
+2023-05-22 01:24:03,552 p=7089 u=ec2-user n=ansible | TASK [Create directory] ********************************************************
+2023-05-22 01:24:04,031 p=7089 u=ec2-user n=ansible | ok: [3.89.112.99]
+2023-05-22 01:24:04,073 p=7089 u=ec2-user n=ansible | PLAY RECAP *********************************************************************
+2023-05-22 01:24:04,074 p=7089 u=ec2-user n=ansible | 3.89.112.99                : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2023-05-22 01:25:17,443 p=7197 u=ec2-user n=ansible | Decryption successful
+2023-05-22 01:33:35,468 p=7365 u=ec2-user n=ansible | playbook: play.yml
+2023-05-22 01:34:16,887 p=7426 u=ec2-user n=ansible | PLAY [devserver] ***************************************************************
+2023-05-22 01:34:16,901 p=7426 u=ec2-user n=ansible | TASK [Gathering Facts] *********************************************************
+2023-05-22 01:34:18,912 p=7426 u=ec2-user n=ansible | ok: [3.89.112.99]
+2023-05-22 01:34:18,942 p=7426 u=ec2-user n=ansible | TASK [Creating user] ***********************************************************
+2023-05-22 01:34:19,481 p=7426 u=ec2-user n=ansible | ok: [3.89.112.99]
+2023-05-22 01:34:19,493 p=7426 u=ec2-user n=ansible | TASK [create file] *************************************************************
+2023-05-22 01:34:19,927 p=7426 u=ec2-user n=ansible | ok: [3.89.112.99]
+2023-05-22 01:34:19,938 p=7426 u=ec2-user n=ansible | TASK [read the output] *********************************************************
+2023-05-22 01:34:19,964 p=7426 u=ec2-user n=ansible | ok: [3.89.112.99] => {
+    "msg": "Hello from ansible this is running on RedHat"
+}
+2023-05-22 01:34:19,975 p=7426 u=ec2-user n=ansible | TASK [Create directory] ********************************************************
+2023-05-22 01:34:20,249 p=7426 u=ec2-user n=ansible | ok: [3.89.112.99]
+2023-05-22 01:34:20,265 p=7426 u=ec2-user n=ansible | TASK [create a file] ***********************************************************
+2023-05-22 01:34:20,632 p=7426 u=ec2-user n=ansible | skipping: [3.89.112.99]
+2023-05-22 01:34:20,645 p=7426 u=ec2-user n=ansible | TASK [install apache] **********************************************************
+2023-05-22 01:34:21,731 p=7426 u=ec2-user n=ansible | ok: [3.89.112.99]
+2023-05-22 01:34:21,744 p=7426 u=ec2-user n=ansible | TASK [install finger] **********************************************************
+2023-05-22 01:34:22,608 p=7426 u=ec2-user n=ansible | ok: [3.89.112.99] => (item=wget)
+2023-05-22 01:34:23,495 p=7426 u=ec2-user n=ansible | ok: [3.89.112.99] => (item=samba)
+2023-05-22 01:34:24,918 p=7426 u=ec2-user n=ansible | ok: [3.89.112.99] => (item=java)
+2023-05-22 01:34:25,797 p=7426 u=ec2-user n=ansible | ok: [3.89.112.99] => (item=finger)
+2023-05-22 01:34:25,829 p=7426 u=ec2-user n=ansible | PLAY RECAP *********************************************************************
+2023-05-22 01:34:25,831 p=7426 u=ec2-user n=ansible | 3.89.112.99                : ok=7    changed=0    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+2023-05-22 17:38:32,490 p=4181 u=ec2-user n=ansible | 54.197.114.178 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+2023-05-22 17:38:32,670 p=4181 u=ec2-user n=ansible | 44.215.105.230 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+2023-05-22 18:51:21,748 p=6614 u=ec2-user n=ansible | [WARNING]: Unable to parse /home/ec2-user/inv.yml       roles_path =
+/home/ec2-user/roles as an inventory source
+
+2023-05-22 18:51:21,751 p=6614 u=ec2-user n=ansible | [WARNING]: No inventory was parsed, only implicit localhost is available
+
+2023-05-22 18:51:21,845 p=6614 u=ec2-user n=ansible | ERROR! We were unable to read either as JSON nor YAML, these are the errors we got from each:
+JSON: Expecting value: line 1 column 1 (char 0)
+
+Syntax Error while loading YAML.
+  mapping values are not allowed in this context
+
+The error appears to be in '/home/ec2-user/web1.yml': line 3, column 8, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+-hosts: qaserver
+ become: True
+       ^ here
+
+2023-05-22 18:58:44,263 p=6875 u=ec2-user n=ansible | [WARNING]: Unable to parse /home/ec2-user/inv.yml       roles_path = /home/ec2-user/roles as an inventory source
+
+2023-05-22 18:58:44,263 p=6875 u=ec2-user n=ansible | [WARNING]: No inventory was parsed, only implicit localhost is available
+
+2023-05-22 18:58:44,308 p=6875 u=ec2-user n=ansible | ERROR! We were unable to read either as JSON nor YAML, these are the errors we got from each:
+JSON: Expecting value: line 1 column 1 (char 0)
+
+Syntax Error while loading YAML.
+  mapping values are not allowed in this context
+
+The error appears to be in '/home/ec2-user/web1.yml': line 3, column 9, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+-hosts: qaserver
+  become: True
+        ^ here
+
+2023-05-22 19:01:26,208 p=6934 u=ec2-user n=ansible | ERROR! We were unable to read either as JSON nor YAML, these are the errors we got from each:
+JSON: Expecting value: line 1 column 1 (char 0)
+
+Syntax Error while loading YAML.
+  mapping values are not allowed in this context
+
+The error appears to be in '/home/ec2-user/web1.yml': line 3, column 9, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+-hosts: qaserver
+  become: True
+        ^ here
+
+2023-05-22 19:02:55,733 p=7198 u=ec2-user n=ansible | ERROR! We were unable to read either as JSON nor YAML, these are the errors we got from each:
+JSON: Expecting value: line 1 column 1 (char 0)
+
+Syntax Error while loading YAML.
+  mapping values are not allowed in this context
+
+The error appears to be in '/home/ec2-user/web1.yml': line 3, column 10, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+-hosts: qaserver
+   become: True
+         ^ here
+
+2023-05-22 19:04:31,204 p=7523 u=ec2-user n=ansible | ERROR! We were unable to read either as JSON nor YAML, these are the errors we got from each:
+JSON: Expecting value: line 1 column 1 (char 0)
+
+Syntax Error while loading YAML.
+  mapping values are not allowed in this context
+
+The error appears to be in '/home/ec2-user/web1.yml': line 3, column 10, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+-hosts: qaserver
+   become: True
+         ^ here
+
+2023-05-22 19:10:15,658 p=7649 u=ec2-user n=ansible | ERROR! the playbook: web1.yaml could not be found
+2023-05-22 19:10:58,992 p=7736 u=ec2-user n=ansible | ERROR! We were unable to read either as JSON nor YAML, these are the errors we got from each:
+JSON: Expecting value: line 1 column 2 (char 1)
+
+Syntax Error while loading YAML.
+  did not find expected <document start>
+
+The error appears to be in '/home/ec2-user/inv.yml': line 3, column 1, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+
+44.215.105.230
+^ here
+
+2023-05-22 19:11:39,488 p=7792 u=ec2-user n=ansible | ERROR! We were unable to read either as JSON nor YAML, these are the errors we got from each:
+JSON: Expecting value: line 1 column 1 (char 0)
+
+Syntax Error while loading YAML.
+  mapping values are not allowed in this context
+
+The error appears to be in '/home/ec2-user/web1.yml': line 3, column 10, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+-hosts: qaserver
+   become: True
+         ^ here
+
+2023-05-22 19:11:53,265 p=7836 u=ec2-user n=ansible | ERROR! We were unable to read either as JSON nor YAML, these are the errors we got from each:
+JSON: Expecting value: line 1 column 1 (char 0)
+
+Syntax Error while loading YAML.
+  mapping values are not allowed in this context
+
+The error appears to be in '/home/ec2-user/web1.yml': line 3, column 10, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+-hosts: qaserver
+   become: True
+         ^ here
+
+2023-05-22 19:14:20,069 p=8176 u=ec2-user n=ansible | ERROR! We were unable to read either as JSON nor YAML, these are the errors we got from each:
+JSON: Expecting value: line 1 column 1 (char 0)
+
+Syntax Error while loading YAML.
+  mapping values are not allowed in this context
+
+The error appears to be in '/home/ec2-user/web1.yml': line 3, column 8, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+-hosts: qaserver
+ become: True
+       ^ here
+
+2023-05-22 19:17:56,138 p=8216 u=ec2-user n=ansible | ERROR! We were unable to read either as JSON nor YAML, these are the errors we got from each:
+JSON: Expecting value: line 1 column 2 (char 1)
+
+Syntax Error while loading YAML.
+  mapping values are not allowed in this context
+
+The error appears to be in '/home/ec2-user/web1.yml': line 2, column 7, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+ ---
+-hosts: qaserver
+      ^ here
+
+2023-05-22 19:18:33,345 p=8249 u=ec2-user n=ansible | ERROR! We were unable to read either as JSON nor YAML, these are the errors we got from each:
+JSON: Expecting value: line 1 column 2 (char 1)
+
+Syntax Error while loading YAML.
+  mapping values are not allowed in this context
+
+The error appears to be in '/home/ec2-user/web1.yml': line 2, column 7, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+ ---
+-hosts: qaserver
+      ^ here
+
+2023-05-22 19:19:02,544 p=8275 u=ec2-user n=ansible | ERROR! We were unable to read either as JSON nor YAML, these are the errors we got from each:
+JSON: Expecting value: line 1 column 2 (char 1)
+
+Syntax Error while loading YAML.
+  mapping values are not allowed in this context
+
+The error appears to be in '/home/ec2-user/web1.yml': line 2, column 7, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+ ---
+-hosts: qaserver,
+      ^ here
+
+2023-05-22 19:20:49,561 p=8319 u=ec2-user n=ansible | ERROR! A malformed role declaration was encountered.
+
+The error appears to be in '/home/ec2-user/web1.yml': line 2, column 3, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+---
+- hosts: qaserver,
+  ^ here
+
+2023-05-22 19:21:09,551 p=8346 u=ec2-user n=ansible | ERROR! A malformed role declaration was encountered.
+
+The error appears to be in '/home/ec2-user/web1.yml': line 2, column 3, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+---
+- hosts: qaserver
+  ^ here
+
+2023-05-22 19:23:03,221 p=8379 u=ec2-user n=ansible | ERROR! A malformed role declaration was encountered.
+
+The error appears to be in '/home/ec2-user/web1.yml': line 2, column 5, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+---
+  - hosts: qaserver
+    ^ here
+
+2023-05-22 19:25:28,761 p=8411 u=ec2-user n=ansible | ERROR! We were unable to read either as JSON nor YAML, these are the errors we got from each:
+JSON: Expecting value: line 1 column 1 (char 0)
+
+Syntax Error while loading YAML.
+  mapping values are not allowed in this context
+
+The error appears to be in '/home/ec2-user/web1.yml': line 4, column 10, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+  become: True
+    roles:
+         ^ here
+
+2023-05-22 19:25:58,436 p=8440 u=ec2-user n=ansible | ERROR! A malformed role declaration was encountered.
+
+The error appears to be in '/home/ec2-user/web1.yml': line 2, column 3, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+---
+- hosts: qaserver
+  ^ here
+
+2023-05-22 21:41:25,312 p=10520 u=ec2-user n=ansible | ERROR! A malformed role declaration was encountered.
+
+The error appears to be in '/home/ec2-user/web1.yml': line 2, column 3, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+---
+- hosts: qaserver
+  ^ here
+
+2023-05-22 21:47:05,591 p=10571 u=ec2-user n=ansible | ERROR! conflicting action statements: copy, src
+
+The error appears to be in '/home/ec2-user/roles/apache/tasks/main.yml': line 7, column 3, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+    state: present
+- name: copy index file
+  ^ here
+
+2023-05-22 21:47:56,095 p=10603 u=ec2-user n=ansible | ERROR! conflicting action statements: copy, src
+
+The error appears to be in '/home/ec2-user/roles/apache/tasks/main.yml': line 7, column 3, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+    state: present
+- name: copy index file
+  ^ here
+
+2023-05-22 21:50:49,107 p=10670 u=ec2-user n=ansible | PLAY [qaserver] *********************************************************************************************************************
+2023-05-22 21:50:49,122 p=10670 u=ec2-user n=ansible | TASK [Gathering Facts] **************************************************************************************************************
+2023-05-22 21:50:52,222 p=10670 u=ec2-user n=ansible | ok: [44.215.105.230]
+2023-05-22 21:50:52,246 p=10670 u=ec2-user n=ansible | TASK [apache : Install Apache] ******************************************************************************************************
+2023-05-22 21:50:54,995 p=10670 u=ec2-user n=ansible | changed: [44.215.105.230]
+2023-05-22 21:50:55,020 p=10670 u=ec2-user n=ansible | TASK [apache : copy index file] *****************************************************************************************************
+2023-05-22 21:50:55,535 p=10670 u=ec2-user n=ansible | changed: [44.215.105.230]
+2023-05-22 21:50:55,560 p=10670 u=ec2-user n=ansible | RUNNING HANDLER [apache : restart apache] *******************************************************************************************
+2023-05-22 21:50:56,755 p=10670 u=ec2-user n=ansible | fatal: [44.215.105.230]: FAILED! => {"changed": false, "msg": "Could not find the requested service httpd: host"}
+2023-05-22 21:50:56,756 p=10670 u=ec2-user n=ansible | NO MORE HOSTS LEFT ******************************************************************************************************************
+2023-05-22 21:50:56,757 p=10670 u=ec2-user n=ansible | PLAY RECAP **************************************************************************************************************************
+2023-05-22 21:50:56,757 p=10670 u=ec2-user n=ansible | 44.215.105.230             : ok=3    changed=2    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2023-05-22 23:13:56,318 p=11488 u=ec2-user n=ansible | PLAY [qaserver] *********************************************************************************************************************
+2023-05-22 23:13:56,333 p=11488 u=ec2-user n=ansible | TASK [Gathering Facts] **************************************************************************************************************
+2023-05-22 23:13:58,525 p=11488 u=ec2-user n=ansible | ok: [44.215.105.230]
+2023-05-22 23:13:58,549 p=11488 u=ec2-user n=ansible | TASK [apache : Install Apache] ******************************************************************************************************
+2023-05-22 23:14:00,155 p=11488 u=ec2-user n=ansible | changed: [44.215.105.230]
+2023-05-22 23:14:00,192 p=11488 u=ec2-user n=ansible | TASK [apache : copy index file] *****************************************************************************************************
+2023-05-22 23:14:00,664 p=11488 u=ec2-user n=ansible | changed: [44.215.105.230]
+2023-05-22 23:14:00,714 p=11488 u=ec2-user n=ansible | RUNNING HANDLER [apache : restart apache] *******************************************************************************************
+2023-05-22 23:14:01,617 p=11488 u=ec2-user n=ansible | fatal: [44.215.105.230]: FAILED! => {"changed": false, "msg": "Could not find the requested service httpd: host"}
+2023-05-22 23:14:01,618 p=11488 u=ec2-user n=ansible | NO MORE HOSTS LEFT ******************************************************************************************************************
+2023-05-22 23:14:01,619 p=11488 u=ec2-user n=ansible | PLAY RECAP **************************************************************************************************************************
+2023-05-22 23:14:01,619 p=11488 u=ec2-user n=ansible | 44.215.105.230             : ok=3    changed=2    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2023-05-22 23:17:26,079 p=11595 u=ec2-user n=ansible | PLAY [qaserver] *********************************************************************************************************************
+2023-05-22 23:17:26,094 p=11595 u=ec2-user n=ansible | TASK [Gathering Facts] **************************************************************************************************************
+2023-05-22 23:17:28,710 p=11595 u=ec2-user n=ansible | ok: [44.215.105.230]
+2023-05-22 23:17:28,734 p=11595 u=ec2-user n=ansible | TASK [apache : Install Apache] ******************************************************************************************************
+2023-05-22 23:17:39,058 p=11595 u=ec2-user n=ansible | changed: [44.215.105.230]
+2023-05-22 23:17:39,071 p=11595 u=ec2-user n=ansible | TASK [apache : copy index file] *****************************************************************************************************
+2023-05-22 23:17:40,496 p=11595 u=ec2-user n=ansible | changed: [44.215.105.230]
+2023-05-22 23:17:40,518 p=11595 u=ec2-user n=ansible | RUNNING HANDLER [apache : restart apache] *******************************************************************************************
+2023-05-22 23:17:41,414 p=11595 u=ec2-user n=ansible | changed: [44.215.105.230]
+2023-05-22 23:17:41,427 p=11595 u=ec2-user n=ansible | PLAY RECAP **************************************************************************************************************************
+2023-05-22 23:17:41,428 p=11595 u=ec2-user n=ansible | 44.215.105.230             : ok=4    changed=3    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2023-05-22 23:33:29,354 p=11950 u=ec2-user n=ansible | Starting galaxy role install process
+2023-05-22 23:33:29,355 p=11950 u=ec2-user n=ansible | - downloading role 'geeringguy-java', owned by 
+2023-05-22 23:33:29,412 p=11950 u=ec2-user n=ansible | [WARNING]: - geeringguy-java was NOT installed successfully: None (HTTP Code:
+400, Message: Bad Request)
+
+2023-05-22 23:33:29,413 p=11950 u=ec2-user n=ansible | ERROR! - you can use --ignore-errors to skip failed roles and finish processing the list.
+2023-05-22 23:34:31,260 p=12000 u=ec2-user n=ansible | Starting galaxy role install process
+2023-05-22 23:34:31,260 p=12000 u=ec2-user n=ansible | - downloading role 'java', owned by geeringguy
+2023-05-22 23:34:31,338 p=12000 u=ec2-user n=ansible | [WARNING]: - geeringguy.java was NOT installed successfully: - sorry,
+geeringguy.java was not found on https://galaxy.ansible.com/api/.
+
+2023-05-22 23:34:31,339 p=12000 u=ec2-user n=ansible | ERROR! - you can use --ignore-errors to skip failed roles and finish processing the list.
+2023-05-22 23:35:07,277 p=12057 u=ec2-user n=ansible | Starting galaxy role install process
+2023-05-22 23:35:07,277 p=12057 u=ec2-user n=ansible | - downloading role 'java', owned by geerlingguy
+2023-05-22 23:35:07,533 p=12057 u=ec2-user n=ansible | - downloading role from https://github.com/geerlingguy/ansible-role-java/archive/2.3.0.tar.gz
+2023-05-22 23:35:07,683 p=12057 u=ec2-user n=ansible | - extracting geerlingguy.java to /home/ec2-user/roles/geerlingguy.java
+2023-05-22 23:35:07,688 p=12057 u=ec2-user n=ansible | - geerlingguy.java (2.3.0) was installed successfully
+2023-05-22 23:59:05,248 p=12546 u=ec2-user n=ansible | 44.215.105.230 | SUCCESS => {
+    "ansible_facts": {
+        "ansible_all_ipv4_addresses": [
+            "172.31.6.232"
+        ],
+        "ansible_all_ipv6_addresses": [
+            "fe80::88:2ff:fe83:81cf"
+        ],
+        "ansible_apparmor": {
+            "status": "disabled"
+        },
+        "ansible_architecture": "x86_64",
+        "ansible_bios_date": "10/16/2017",
+        "ansible_bios_vendor": "Amazon EC2",
+        "ansible_bios_version": "1.0",
+        "ansible_board_asset_tag": "i-0c60adad08a3501fd",
+        "ansible_board_name": "NA",
+        "ansible_board_serial": "NA",
+        "ansible_board_vendor": "Amazon EC2",
+        "ansible_board_version": "NA",
+        "ansible_chassis_asset_tag": "Amazon EC2",
+        "ansible_chassis_serial": "NA",
+        "ansible_chassis_vendor": "Amazon EC2",
+        "ansible_chassis_version": "NA",
+        "ansible_cmdline": {
+            "BOOT_IMAGE": "/boot/vmlinuz-4.14.313-235.533.amzn2.x86_64",
+            "biosdevname": "0",
+            "console": "ttyS0,115200n8",
+            "net.ifnames": "0",
+            "nvme_core.io_timeout": "4294967295",
+            "rd.emergency": "poweroff",
+            "rd.shell": "0",
+            "ro": true,
+            "root": "UUID=30d6f3ce-a17d-4caf-ac89-e9f959c387e8"
+        },
+        "ansible_date_time": {
+            "date": "2023-05-22",
+            "day": "22",
+            "epoch": "1684799945",
+            "hour": "23",
+            "iso8601": "2023-05-22T23:59:05Z",
+            "iso8601_basic": "20230522T235905163866",
+            "iso8601_basic_short": "20230522T235905",
+            "iso8601_micro": "2023-05-22T23:59:05.163866Z",
+            "minute": "59",
+            "month": "05",
+            "second": "05",
+            "time": "23:59:05",
+            "tz": "UTC",
+            "tz_dst": "UTC",
+            "tz_offset": "+0000",
+            "weekday": "Monday",
+            "weekday_number": "1",
+            "weeknumber": "21",
+            "year": "2023"
+        },
+        "ansible_default_ipv4": {
+            "address": "172.31.6.232",
+            "alias": "eth0",
+            "broadcast": "172.31.15.255",
+            "gateway": "172.31.0.1",
+            "interface": "eth0",
+            "macaddress": "02:88:02:83:81:cf",
+            "mtu": 9001,
+            "netmask": "255.255.240.0",
+            "network": "172.31.0.0",
+            "type": "ether"
+        },
+        "ansible_default_ipv6": {},
+        "ansible_device_links": {
+            "ids": {
+                "nvme0n1": [
+                    "nvme-Amazon_Elastic_Block_Store_vol068d0d45762db0705",
+                    "nvme-Amazon_Elastic_Block_Store_vol068d0d45762db0705-ns-1",
+                    "nvme-nvme.1d0f-766f6c3036386430643435373632646230373035-416d617a6f6e20456c617374696320426c6f636b2053746f7265-00000001"
+                ],
+                "nvme0n1p1": [
+                    "nvme-Amazon_Elastic_Block_Store_vol068d0d45762db0705-ns-1-part1",
+                    "nvme-Amazon_Elastic_Block_Store_vol068d0d45762db0705-part1",
+                    "nvme-nvme.1d0f-766f6c3036386430643435373632646230373035-416d617a6f6e20456c617374696320426c6f636b2053746f7265-00000001-part1"
+                ],
+                "nvme0n1p128": [
+                    "nvme-Amazon_Elastic_Block_Store_vol068d0d45762db0705-ns-1-part128",
+                    "nvme-Amazon_Elastic_Block_Store_vol068d0d45762db0705-part128",
+                    "nvme-nvme.1d0f-766f6c3036386430643435373632646230373035-416d617a6f6e20456c617374696320426c6f636b2053746f7265-00000001-part128"
+                ]
+            },
+            "labels": {
+                "nvme0n1p1": [
+                    "\\x2f"
+                ]
+            },
+            "masters": {},
+            "uuids": {
+                "nvme0n1p1": [
+                    "30d6f3ce-a17d-4caf-ac89-e9f959c387e8"
+                ]
+            }
+        },
+        "ansible_devices": {
+            "nvme0n1": {
+                "holders": [],
+                "host": "Non-Volatile memory controller: Amazon.com, Inc. Device 8061",
+                "links": {
+                    "ids": [
+                        "nvme-Amazon_Elastic_Block_Store_vol068d0d45762db0705",
+                        "nvme-Amazon_Elastic_Block_Store_vol068d0d45762db0705-ns-1",
+                        "nvme-nvme.1d0f-766f6c3036386430643435373632646230373035-416d617a6f6e20456c617374696320426c6f636b2053746f7265-00000001"
+                    ],
+                    "labels": [],
+                    "masters": [],
+                    "uuids": []
+                },
+                "model": "Amazon Elastic Block Store",
+                "partitions": {
+                    "nvme0n1p1": {
+                        "holders": [],
+                        "links": {
+                            "ids": [
+                                "nvme-Amazon_Elastic_Block_Store_vol068d0d45762db0705-ns-1-part1",
+                                "nvme-Amazon_Elastic_Block_Store_vol068d0d45762db0705-part1",
+                                "nvme-nvme.1d0f-766f6c3036386430643435373632646230373035-416d617a6f6e20456c617374696320426c6f636b2053746f7265-00000001-part1"
+                            ],
+                            "labels": [
+                                "\\x2f"
+                            ],
+                            "masters": [],
+                            "uuids": [
+                                "30d6f3ce-a17d-4caf-ac89-e9f959c387e8"
+                            ]
+                        },
+                        "sectors": "16773087",
+                        "sectorsize": 512,
+                        "size": "8.00 GB",
+                        "start": "4096",
+                        "uuid": "30d6f3ce-a17d-4caf-ac89-e9f959c387e8"
+                    },
+                    "nvme0n1p128": {
+                        "holders": [],
+                        "links": {
+                            "ids": [
+                                "nvme-Amazon_Elastic_Block_Store_vol068d0d45762db0705-ns-1-part128",
+                                "nvme-Amazon_Elastic_Block_Store_vol068d0d45762db0705-part128",
+                                "nvme-nvme.1d0f-766f6c3036386430643435373632646230373035-416d617a6f6e20456c617374696320426c6f636b2053746f7265-00000001-part128"
+                            ],
+                            "labels": [],
+                            "masters": [],
+                            "uuids": []
+                        },
+                        "sectors": "2048",
+                        "sectorsize": 512,
+                        "size": "1.00 MB",
+                        "start": "2048",
+                        "uuid": null
+                    }
+                },
+                "removable": "0",
+                "rotational": "0",
+                "sas_address": null,
+                "sas_device_handle": null,
+                "scheduler_mode": "none",
+                "sectors": "16777216",
+                "sectorsize": "512",
+                "serial": "vol068d0d45762db0705",
+                "size": "8.00 GB",
+                "support_discard": "0",
+                "vendor": null,
+                "virtual": 1
+            }
+        },
+        "ansible_distribution": "Amazon",
+        "ansible_distribution_file_parsed": true,
+        "ansible_distribution_file_path": "/etc/os-release",
+        "ansible_distribution_file_variety": "Amazon",
+        "ansible_distribution_major_version": "2",
+        "ansible_distribution_minor_version": "NA",
+        "ansible_distribution_release": "NA",
+        "ansible_distribution_version": "2",
+        "ansible_dns": {
+            "nameservers": [
+                "172.31.0.2"
+            ],
+            "options": {
+                "attempts": "5",
+                "timeout": "2"
+            },
+            "search": [
+                "ec2.internal"
+            ]
+        },
+        "ansible_domain": "ec2.internal",
+        "ansible_effective_group_id": 1000,
+        "ansible_effective_user_id": 1000,
+        "ansible_env": {
+            "HOME": "/home/ec2-user",
+            "LANG": "en_US.UTF-8",
+            "LESSOPEN": "||/usr/bin/lesspipe.sh %s",
+            "LOGNAME": "ec2-user",
+            "LS_COLORS": "rs=0:di=38;5;27:ln=38;5;51:mh=44;38;5;15:pi=40;38;5;11:so=38;5;13:do=38;5;5:bd=48;5;232;38;5;11:cd=48;5;232;38;5;3:or=48;5;232;38;5;9:mi=05;48;5;232;38;5;15:su=48;5;196;38;5;15:sg=48;5;11;38;5;16:ca=48;5;196;38;5;226:tw=48;5;10;38;5;16:ow=48;5;10;38;5;21:st=48;5;21;38;5;15:ex=38;5;34:*.tar=38;5;9:*.tgz=38;5;9:*.arc=38;5;9:*.arj=38;5;9:*.taz=38;5;9:*.lha=38;5;9:*.lz4=38;5;9:*.lzh=38;5;9:*.lzma=38;5;9:*.tlz=38;5;9:*.txz=38;5;9:*.tzo=38;5;9:*.t7z=38;5;9:*.zip=38;5;9:*.z=38;5;9:*.Z=38;5;9:*.dz=38;5;9:*.gz=38;5;9:*.lrz=38;5;9:*.lz=38;5;9:*.lzo=38;5;9:*.xz=38;5;9:*.bz2=38;5;9:*.bz=38;5;9:*.tbz=38;5;9:*.tbz2=38;5;9:*.tz=38;5;9:*.deb=38;5;9:*.rpm=38;5;9:*.jar=38;5;9:*.war=38;5;9:*.ear=38;5;9:*.sar=38;5;9:*.rar=38;5;9:*.alz=38;5;9:*.ace=38;5;9:*.zoo=38;5;9:*.cpio=38;5;9:*.7z=38;5;9:*.rz=38;5;9:*.cab=38;5;9:*.jpg=38;5;13:*.jpeg=38;5;13:*.gif=38;5;13:*.bmp=38;5;13:*.pbm=38;5;13:*.pgm=38;5;13:*.ppm=38;5;13:*.tga=38;5;13:*.xbm=38;5;13:*.xpm=38;5;13:*.tif=38;5;13:*.tiff=38;5;13:*.png=38;5;13:*.svg=38;5;13:*.svgz=38;5;13:*.mng=38;5;13:*.pcx=38;5;13:*.mov=38;5;13:*.mpg=38;5;13:*.mpeg=38;5;13:*.m2v=38;5;13:*.mkv=38;5;13:*.webm=38;5;13:*.ogm=38;5;13:*.mp4=38;5;13:*.m4v=38;5;13:*.mp4v=38;5;13:*.vob=38;5;13:*.qt=38;5;13:*.nuv=38;5;13:*.wmv=38;5;13:*.asf=38;5;13:*.rm=38;5;13:*.rmvb=38;5;13:*.flc=38;5;13:*.avi=38;5;13:*.fli=38;5;13:*.flv=38;5;13:*.gl=38;5;13:*.dl=38;5;13:*.xcf=38;5;13:*.xwd=38;5;13:*.yuv=38;5;13:*.cgm=38;5;13:*.emf=38;5;13:*.axv=38;5;13:*.anx=38;5;13:*.ogv=38;5;13:*.ogx=38;5;13:*.aac=38;5;45:*.au=38;5;45:*.flac=38;5;45:*.mid=38;5;45:*.midi=38;5;45:*.mka=38;5;45:*.mp3=38;5;45:*.mpc=38;5;45:*.ogg=38;5;45:*.ra=38;5;45:*.wav=38;5;45:*.axa=38;5;45:*.oga=38;5;45:*.spx=38;5;45:*.xspf=38;5;45:",
+            "MAIL": "/var/mail/ec2-user",
+            "PATH": "/usr/local/bin:/usr/bin",
+            "PWD": "/home/ec2-user",
+            "SHELL": "/bin/bash",
+            "SHLVL": "2",
+            "SSH_CLIENT": "54.161.52.239 49208 22",
+            "SSH_CONNECTION": "54.161.52.239 49208 172.31.6.232 22",
+            "SSH_TTY": "/dev/pts/0",
+            "TERM": "xterm-256color",
+            "USER": "ec2-user",
+            "XDG_RUNTIME_DIR": "/run/user/1000",
+            "XDG_SESSION_ID": "60",
+            "_": "/usr/bin/python"
+        },
+        "ansible_eth0": {
+            "active": true,
+            "device": "eth0",
+            "features": {
+                "esp_hw_offload": "off [fixed]",
+                "esp_tx_csum_hw_offload": "off [fixed]",
+                "fcoe_mtu": "off [fixed]",
+                "generic_receive_offload": "on",
+                "generic_segmentation_offload": "on",
+                "highdma": "on",
+                "hw_tc_offload": "off [fixed]",
+                "l2_fwd_offload": "off [fixed]",
+                "large_receive_offload": "off [fixed]",
+                "loopback": "off [fixed]",
+                "netns_local": "off [fixed]",
+                "ntuple_filters": "off [fixed]",
+                "receive_hashing": "on",
+                "rx_all": "off [fixed]",
+                "rx_checksumming": "off [fixed]",
+                "rx_fcs": "off [fixed]",
+                "rx_udp_tunnel_port_offload": "off [fixed]",
+                "rx_vlan_filter": "off [fixed]",
+                "rx_vlan_offload": "off [fixed]",
+                "rx_vlan_stag_filter": "off [fixed]",
+                "rx_vlan_stag_hw_parse": "off [fixed]",
+                "scatter_gather": "on",
+                "tcp_segmentation_offload": "off",
+                "tx_checksum_fcoe_crc": "off [fixed]",
+                "tx_checksum_ip_generic": "off [fixed]",
+                "tx_checksum_ipv4": "on",
+                "tx_checksum_ipv6": "off [fixed]",
+                "tx_checksum_sctp": "off [fixed]",
+                "tx_checksumming": "on",
+                "tx_esp_segmentation": "off [fixed]",
+                "tx_fcoe_segmentation": "off [fixed]",
+                "tx_gre_csum_segmentation": "off [fixed]",
+                "tx_gre_segmentation": "off [fixed]",
+                "tx_gso_partial": "off [fixed]",
+                "tx_gso_robust": "off [fixed]",
+                "tx_ipxip4_segmentation": "off [fixed]",
+                "tx_ipxip6_segmentation": "off [fixed]",
+                "tx_lockless": "off [fixed]",
+                "tx_nocache_copy": "off",
+                "tx_scatter_gather": "on",
+                "tx_scatter_gather_fraglist": "off [fixed]",
+                "tx_sctp_segmentation": "off [fixed]",
+                "tx_tcp6_segmentation": "off [fixed]",
+                "tx_tcp_ecn_segmentation": "off [fixed]",
+                "tx_tcp_mangleid_segmentation": "off [fixed]",
+                "tx_tcp_segmentation": "off [fixed]",
+                "tx_udp_tnl_csum_segmentation": "off [fixed]",
+                "tx_udp_tnl_segmentation": "off [fixed]",
+                "tx_vlan_offload": "off [fixed]",
+                "tx_vlan_stag_hw_insert": "off [fixed]",
+                "udp_fragmentation_offload": "off",
+                "vlan_challenged": "off [fixed]"
+            },
+            "hw_timestamp_filters": [],
+            "ipv4": {
+                "address": "172.31.6.232",
+                "broadcast": "172.31.15.255",
+                "netmask": "255.255.240.0",
+                "network": "172.31.0.0"
+            },
+            "ipv6": [
+                {
+                    "address": "fe80::88:2ff:fe83:81cf",
+                    "prefix": "64",
+                    "scope": "link"
+                }
+            ],
+            "macaddress": "02:88:02:83:81:cf",
+            "module": "ena",
+            "mtu": 9001,
+            "pciid": "0000:00:05.0",
+            "promisc": false,
+            "timestamping": [
+                "tx_software",
+                "rx_software",
+                "software"
+            ],
+            "type": "ether"
+        },
+        "ansible_fibre_channel_wwn": [],
+        "ansible_fips": false,
+        "ansible_form_factor": "Other",
+        "ansible_fqdn": "ip-172-31-6-232.ec2.internal",
+        "ansible_hostname": "ip-172-31-6-232",
+        "ansible_hostnqn": "",
+        "ansible_interfaces": [
+            "lo",
+            "eth0"
+        ],
+        "ansible_is_chroot": true,
+        "ansible_iscsi_iqn": "",
+        "ansible_kernel": "4.14.313-235.533.amzn2.x86_64",
+        "ansible_kernel_version": "#1 SMP Tue Apr 25 15:24:19 UTC 2023",
+        "ansible_lo": {
+            "active": true,
+            "device": "lo",
+            "features": {
+                "esp_hw_offload": "off [fixed]",
+                "esp_tx_csum_hw_offload": "off [fixed]",
+                "fcoe_mtu": "off [fixed]",
+                "generic_receive_offload": "on",
+                "generic_segmentation_offload": "on",
+                "highdma": "on [fixed]",
+                "hw_tc_offload": "off [fixed]",
+                "l2_fwd_offload": "off [fixed]",
+                "large_receive_offload": "off [fixed]",
+                "loopback": "on [fixed]",
+                "netns_local": "on [fixed]",
+                "ntuple_filters": "off [fixed]",
+                "receive_hashing": "off [fixed]",
+                "rx_all": "off [fixed]",
+                "rx_checksumming": "on [fixed]",
+                "rx_fcs": "off [fixed]",
+                "rx_udp_tunnel_port_offload": "off [fixed]",
+                "rx_vlan_filter": "off [fixed]",
+                "rx_vlan_offload": "off [fixed]",
+                "rx_vlan_stag_filter": "off [fixed]",
+                "rx_vlan_stag_hw_parse": "off [fixed]",
+                "scatter_gather": "on",
+                "tcp_segmentation_offload": "on",
+                "tx_checksum_fcoe_crc": "off [fixed]",
+                "tx_checksum_ip_generic": "on [fixed]",
+                "tx_checksum_ipv4": "off [fixed]",
+                "tx_checksum_ipv6": "off [fixed]",
+                "tx_checksum_sctp": "on [fixed]",
+                "tx_checksumming": "on",
+                "tx_esp_segmentation": "off [fixed]",
+                "tx_fcoe_segmentation": "off [fixed]",
+                "tx_gre_csum_segmentation": "off [fixed]",
+                "tx_gre_segmentation": "off [fixed]",
+                "tx_gso_partial": "off [fixed]",
+                "tx_gso_robust": "off [fixed]",
+                "tx_ipxip4_segmentation": "off [fixed]",
+                "tx_ipxip6_segmentation": "off [fixed]",
+                "tx_lockless": "on [fixed]",
+                "tx_nocache_copy": "off [fixed]",
+                "tx_scatter_gather": "on [fixed]",
+                "tx_scatter_gather_fraglist": "on [fixed]",
+                "tx_sctp_segmentation": "on",
+                "tx_tcp6_segmentation": "on",
+                "tx_tcp_ecn_segmentation": "on",
+                "tx_tcp_mangleid_segmentation": "on",
+                "tx_tcp_segmentation": "on",
+                "tx_udp_tnl_csum_segmentation": "off [fixed]",
+                "tx_udp_tnl_segmentation": "off [fixed]",
+                "tx_vlan_offload": "off [fixed]",
+                "tx_vlan_stag_hw_insert": "off [fixed]",
+                "udp_fragmentation_offload": "off",
+                "vlan_challenged": "on [fixed]"
+            },
+            "hw_timestamp_filters": [],
+            "ipv4": {
+                "address": "127.0.0.1",
+                "broadcast": "",
+                "netmask": "255.0.0.0",
+                "network": "127.0.0.0"
+            },
+            "ipv6": [
+                {
+                    "address": "::1",
+                    "prefix": "128",
+                    "scope": "host"
+                }
+            ],
+            "mtu": 65536,
+            "promisc": false,
+            "timestamping": [
+                "tx_software",
+                "rx_software",
+                "software"
+            ],
+            "type": "loopback"
+        },
+        "ansible_local": {},
+        "ansible_lsb": {},
+        "ansible_machine": "x86_64",
+        "ansible_machine_id": "ec225c39b02032e7e6c8c82d5abda73f",
+        "ansible_memfree_mb": 1597,
+        "ansible_memory_mb": {
+            "nocache": {
+                "free": 1792,
+                "used": 150
+            },
+            "real": {
+                "free": 1597,
+                "total": 1942,
+                "used": 345
+            },
+            "swap": {
+                "cached": 0,
+                "free": 0,
+                "total": 0,
+                "used": 0
+            }
+        },
+        "ansible_memtotal_mb": 1942,
+        "ansible_mounts": [
+            {
+                "block_available": 1693829,
+                "block_size": 4096,
+                "block_total": 2094075,
+                "block_used": 400246,
+                "device": "/dev/nvme0n1p1",
+                "fstype": "xfs",
+                "inode_available": 4144384,
+                "inode_total": 4193216,
+                "inode_used": 48832,
+                "mount": "/",
+                "options": "rw,noatime,attr2,inode64,noquota",
+                "size_available": 6937923584,
+                "size_total": 8577331200,
+                "uuid": "30d6f3ce-a17d-4caf-ac89-e9f959c387e8"
+            }
+        ],
+        "ansible_nodename": "ip-172-31-6-232.ec2.internal",
+        "ansible_os_family": "RedHat",
+        "ansible_pkg_mgr": "yum",
+        "ansible_proc_cmdline": {
+            "BOOT_IMAGE": "/boot/vmlinuz-4.14.313-235.533.amzn2.x86_64",
+            "biosdevname": "0",
+            "console": [
+                "tty0",
+                "ttyS0,115200n8"
+            ],
+            "net.ifnames": "0",
+            "nvme_core.io_timeout": "4294967295",
+            "rd.emergency": "poweroff",
+            "rd.shell": "0",
+            "ro": true,
+            "root": "UUID=30d6f3ce-a17d-4caf-ac89-e9f959c387e8"
+        },
+        "ansible_processor": [
+            "0",
+            "GenuineIntel",
+            "Intel(R) Xeon(R) Platinum 8259CL CPU @ 2.50GHz",
+            "1",
+            "GenuineIntel",
+            "Intel(R) Xeon(R) Platinum 8259CL CPU @ 2.50GHz"
+        ],
+        "ansible_processor_cores": 1,
+        "ansible_processor_count": 1,
+        "ansible_processor_nproc": 2,
+        "ansible_processor_threads_per_core": 2,
+        "ansible_processor_vcpus": 2,
+        "ansible_product_name": "t3.small",
+        "ansible_product_serial": "NA",
+        "ansible_product_uuid": "NA",
+        "ansible_product_version": "NA",
+        "ansible_python": {
+            "executable": "/usr/bin/python",
+            "has_sslcontext": true,
+            "type": "CPython",
+            "version": {
+                "major": 2,
+                "micro": 18,
+                "minor": 7,
+                "releaselevel": "final",
+                "serial": 0
+            },
+            "version_info": [
+                2,
+                7,
+                18,
+                "final",
+                0
+            ]
+        },
+        "ansible_python_version": "2.7.18",
+        "ansible_real_group_id": 1000,
+        "ansible_real_user_id": 1000,
+        "ansible_selinux": {
+            "status": "disabled"
+        },
+        "ansible_selinux_python_present": true,
+        "ansible_service_mgr": "systemd",
+        "ansible_ssh_host_key_ecdsa_public": "AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBLe0xEfG5TWnY24vWpP6G8dY+V7exe4wJLMMK0CGAUj1yF+HSmVqFN50Wylag1ZIemoeQYDWojn77A0AC1f/9QY=",
+        "ansible_ssh_host_key_ecdsa_public_keytype": "ecdsa-sha2-nistp256",
+        "ansible_ssh_host_key_ed25519_public": "AAAAC3NzaC1lZDI1NTE5AAAAICHa31vP0hCRV49Kip2GyqCaZTYxXOAhloyU91mXd6O8",
+        "ansible_ssh_host_key_ed25519_public_keytype": "ssh-ed25519",
+        "ansible_ssh_host_key_rsa_public": "AAAAB3NzaC1yc2EAAAADAQABAAABAQDHdePLPyqtenHqULQjJFEI0zkgW0SVtftgxVuXjiazqGhzG8RyC/J1f0yqm8rthMmC56cQzCyrbnpbLemoGXGeAAgc9+Ny3efvjI7r5hGrNWnjvI7DjGy6NFWyKLaxIOWBKURpAY0AZ8kVyp+9i+ZZKG6nt8kSZ0B4v3S1ShIPzqG1ccOJ5F/Ota92jjOqiHlXWB4ZAkKEXxn2akdE5Y8S0bQvwV+gMhc1bPlgUGxExhgVMfB7Vq9Bj1HlgGg7OwxNiKs5FUyaFFw5GnoyueStuOAAIA3WYdvJ/qpMcx9CgfkKD7ASd0a4lEA/kd4lKu0MRPvkTgpVYkKt4xNYXAo/",
+        "ansible_ssh_host_key_rsa_public_keytype": "ssh-rsa",
+        "ansible_swapfree_mb": 0,
+        "ansible_swaptotal_mb": 0,
+        "ansible_system": "Linux",
+        "ansible_system_capabilities": [
+            ""
+        ],
+        "ansible_system_capabilities_enforced": "True",
+        "ansible_system_vendor": "Amazon EC2",
+        "ansible_uptime_seconds": 28537,
+        "ansible_user_dir": "/home/ec2-user",
+        "ansible_user_gecos": "EC2 Default User",
+        "ansible_user_gid": 1000,
+        "ansible_user_id": "ec2-user",
+        "ansible_user_shell": "/bin/bash",
+        "ansible_user_uid": 1000,
+        "ansible_userspace_architecture": "x86_64",
+        "ansible_userspace_bits": "64",
+        "ansible_virtualization_role": "guest",
+        "ansible_virtualization_tech_guest": [
+            "kvm"
+        ],
+        "ansible_virtualization_tech_host": [],
+        "ansible_virtualization_type": "kvm",
+        "discovered_interpreter_python": "/usr/bin/python",
+        "gather_subset": [
+            "all"
+        ],
+        "module_setup": true
+    },
+    "changed": false
+}
